@@ -1,0 +1,79 @@
+.recClavePage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    margin: 30px 0px 60px 0px;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,.07);
+    figure{
+        width: 300px;
+    }
+    form{
+        width: calc( 100% - 300px );
+        padding: 0px 10% 0px 0px;
+        .textField{
+            margin-bottom: 0px;
+        }
+    }
+}
+
+.rpTitle{
+    h2{
+        font-size: 25px;
+        margin-bottom: 15px;
+    }
+    p{
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    small{
+        margin-top: 20px;
+    }
+    .alertInfoBig{
+        padding: 20px !important;
+    }
+}
+
+.recClavModalCont{
+    width: 90%;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    outline: none;
+    .title{
+        text-align: center;
+        h2{
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+    }
+    .btnBox{
+        margin: 20px 0px 0px 0px;
+        .btnPrimary{
+            margin-right: 10px;
+            height: 50px;
+        }
+    }
+    .recClose{
+        width: 40px;
+        position: absolute;
+        right: 0px;
+        background: var(--green);
+        height: 40px;
+        border-radius: 0px 20px 0px 20px;
+        top: 0px;
+        right: 0px;
+        cursor: pointer;
+        color: white;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+}

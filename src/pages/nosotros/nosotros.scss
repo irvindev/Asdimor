@@ -1,0 +1,471 @@
+@import '../../assets/css/mixin.scss';
+
+
+.nosotrosPageCont{
+    padding: 130px 0px 0px 0px;
+    @include mediaTablet{
+        padding: 125px 0px 0px 0px;
+    }
+    @include mediaPhone{
+        padding: 82px 0px 0px 0px;
+    }
+}
+
+
+.nospIntro{
+    background: var(--blue);
+    justify-content: flex-end;
+    figure{
+        width: 50%;
+        position: relative;
+        &::before{
+            content: '';
+            width: 40%;
+            height: 100%;
+            z-index: 1;
+            top: 0px;
+            left: 0px;
+            position: absolute;
+            background: linear-gradient(to right,  rgba(0,110,184,1) 0%,rgba(0,110,184,0) 100%);
+        }
+    }
+    @include mediaTablet{
+        flex-direction: column;
+        figure{
+            width: 100%;
+        }
+    }
+}
+
+.nospIntroFloat{
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    left: 0px;
+    .txt{
+        width: 50%;
+        padding: 0px 0% 0px 0%;
+        h1{
+            font-family: var(--font1);
+            color: white;
+            font-size: 100px;
+            font-weight: 400;
+        }
+        h2{
+            color: white;
+            font-size: 28px;
+            font-weight: 400;
+            margin: 0px 0px 20px 0px;
+        }
+        p{
+            color: white;
+            font-size: 20px;
+            font-weight: 200;
+        }
+    }
+    @include madiaPcsmall{
+        .txt{
+            h1{
+                font-size: 85px;
+            }
+            h2{
+                font-size: 26px;
+            }
+            p{
+                font-size: 19px;
+            }
+        }
+    }
+    @include mediaLaptop{
+        .txt{
+            h1{
+                font-size: 70px;
+            }
+            h2{
+                font-size: 24px;
+            }
+            p{
+                font-size: 18px;
+            }
+        }
+    }
+    @include mediaTablet{
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        
+        .txt{
+            width: 100%;
+            padding-bottom: 20px;
+            padding: 10px 0px 20px 0px;
+            text-align: center;
+            h1{
+                font-size: 55px;
+            }
+            h2{
+                font-size: 18px;
+            }
+            p{
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.nospIntroDet{
+    position: absolute;
+    z-index: 3;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: auto;
+}
+
+
+// Mision y vision
+.nospMision{
+    background: white;
+    padding: 100px 0px 100px 0px;
+    @include mediaLaptop{
+        padding: 70px 0px 70px 0px;
+    }
+    @include mediaTablet{
+        padding: 40px 0px 40px 0px;
+    }
+}
+
+.nospMisionBox{
+    display: flex;
+    justify-content: space-between;
+    figure{
+        width: 450px;
+        border-radius: 35px;
+        overflow: hidden;
+        img{
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+    ul{
+        margin: 0px;
+        width: calc( 100% - 480px );
+        padding: 0px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        li{
+            background: #F3FAFF;
+            border-radius: 40px;
+            box-shadow: 2px 4px 4px 0px rgba(0,55,107,.10);
+            padding: 60px 30px 60px 30px;
+            margin-bottom: 25px;
+            img{
+                width: 190px;
+            }
+            .txt{
+                padding: 0px 0px 0px 40px;
+                h3{
+                    font-family: var(--font1);
+                    font-size: 70px;
+                }
+                p{
+                    font-size: 20px;
+                    color: var(--gris);
+                }
+            }
+        }
+    }
+    @include mediaLaptop{
+        ul{
+            li{
+                padding: 55px 30px 55px 30px;
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+    @include mediaTablet{
+        figure{
+            width: 350px;
+        }
+        
+        ul{
+            width: calc( 100% - 380px );
+            li{
+                padding: 30px 20px 30px 20px;
+                flex-direction: column;
+
+                img{
+                    width: 100px;
+                }
+                .txt{
+                    text-align: center;
+                    padding: 0px;
+                    h3{
+                        font-size: 40px;
+                    }
+                    p{
+                        font-size: 16px;
+                    }
+                }
+
+            }
+        }
+    }
+    @media screen and (max-width: 750px) {
+        figure{
+            width: 280px;
+        }
+        ul{
+            width: calc( 100% - 300px );
+        }
+    }
+    @include mediaPhone{
+        figure{
+            display: none;
+        }
+        ul{
+            width: 100%;
+        }
+    }
+}
+
+// Counter
+.nospCounter{
+    background: linear-gradient(to bottom,  rgba(149,193,31,1) 0%,rgba(109,150,0,1) 100%);
+    position: relative;
+}
+
+.nospCounterDet{
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    img{
+        display: block;
+    }
+}
+
+.nospCounterDet1{
+    top: -2px;
+    transform: scale(-1,-1);
+}
+
+.nospCounterDet2{
+    bottom: 0px;
+}
+
+.nospCounterBox{
+    padding: 120px 0px 150px 0px;
+    ul{
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        height: auto;
+        display: flex;
+        li{
+            width: 25%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 1px solid rgba(255,255,255,.5);
+            h5{
+                font-size: 120px;
+                font-weight: 900;
+                color: white;
+            }
+            p{
+                font-size: 25px;
+                color: white;
+            }
+            &:last-child{
+                border-right: 0px solid white;
+            }
+        }
+    }
+    @include mediaLaptop{
+        padding: 90px 0px 90px 0px;
+        ul{
+            li{
+                h5{
+                    font-size: 100px;
+                }
+            }
+        }
+    }
+    @include mediaTablet{
+        padding: 60px 0px 60px 0px;
+        ul{
+            li{
+                h5{
+                    font-size: 80px;
+                }
+                p{
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 850px) {
+        padding: 30px 0px 30px 0px;
+        ul{
+            li{
+                h5{
+                    font-size: 60px;
+                }
+                p{
+                    font-size: 16px;
+                }
+            }
+        }  
+    }
+    @media screen and (max-width: 750px) {
+
+        ul{
+            flex-wrap: wrap;
+            display: flex;
+            li{
+                width: 50%;
+                padding: 20px;
+                &:nth-child(2){
+                    border-right: 0px;
+                }
+                &:nth-child(1),
+                &:nth-child(2){
+                    border-bottom: 1px solid rgba(255,255,255,.5);
+                }
+            }
+        }
+    }
+    @include mediaMiniPhone{
+        ul{
+            li{
+                padding: 20px 0px 20px 0px;
+                h5{
+                    font-size: 40px;
+                    
+                }
+                p{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+// Valores{
+.nospValores{
+    background: white;
+    padding: 60px 0px 60px 0px;
+    flex-direction: column;
+}
+
+.nospValoresBox{
+    position: relative;
+    z-index: 3;
+    h4{
+        color: var(--dark-blue);
+        font-family: var(--font1);
+        font-size: 70px;
+        width: 100%;
+        text-align: center;
+    }
+    ul{
+        display: flex;
+        margin: 0px 0px 0px 0px;
+        padding: 0px;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        li{
+            width: 250px;
+            margin: 0px 3% 0px 3%;
+            height: 250px;
+            background: #F3FAFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 4px 4px 0px rgba(0,55,107,.10);
+            flex-direction: column;
+            figure{
+                img{
+                    width: auto;
+                    height:  110px;
+                }
+            }
+            &:nth-child(2){
+                margin-top: 30px;
+                margin-bottom: -100px;
+            }
+        }
+    }
+    @include mediaLaptop{
+        h4{
+            font-size: 60px;
+        }
+    }
+    @include mediaTablet{
+        h4{
+            font-size: 45px;
+        }
+        ul{
+            li{
+                width: 150px;
+                height: 150px;
+                figure{
+                    img{
+                        width: auto;
+                        height: 70px;
+                    }
+                }
+            }
+        }
+    }
+    @include mediaPhone{
+        h4{
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+        ul{
+            flex-direction: column;
+            li{
+                width: 110px;
+                height: 110px;
+                font-size: 14px;
+                margin-bottom: 15px;
+                figure{
+                    margin-bottom: 5px;
+                    img{
+                        width: auto;
+                        height: 40px;
+                    }
+                }
+                &:nth-child(2){
+                    margin-top: 0px;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}
+
+.nospValoresBack{
+    margin-top: -100px;
+    position: relative;
+    &::before{
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: 0px;
+        height: 100%;
+        background: linear-gradient(to bottom,  rgba(255,255,255,1) 1%,rgba(255,255,255,1) 20%,rgba(255,255,255,0) 100%);
+        width: 100%;
+        left: 0px;
+    }
+}

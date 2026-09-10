@@ -1,0 +1,122 @@
+@import '../../../assets/css/mixin.scss';
+
+.productItem{
+    background: white;
+    padding: 15px;
+    border-radius: 20px;
+    border: 1px solid #D5F2FF;
+    box-shadow: 2px 4px 3px 0px rgba(0,0,0,.07);
+    
+    h4{
+        color: var(--gris);
+        font-size: 18px;
+        font-weight: 600;
+        width: 100%;
+        line-height: 1;
+        display: inline-block;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    figure{
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+        img{
+            display: block;
+        }
+        .btnBox{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            opacity: 0;
+            background: rgba(10,62,91,.5);
+            //background: rgba(255,255,255,.5);
+            backdrop-filter: blur(1px);
+            z-index: 2;
+            transition: all ease-in-out 0.3s;
+            flex-direction: column;
+            .btn{
+                width: auto;
+                padding: 0px 20px 0px 20px;
+                border-radius: 25px;
+                background: var(--green);
+                text-decoration: none;
+                border: none;
+                color: white;
+                text-transform: uppercase;
+                height: 40px;
+                font-weight: 600;
+                font-family: var(--font2);
+                font-size: 14px;
+                transform: translateY(10px);
+                transition: all ease-in 0.3s;
+                margin: 5px 0px 5px 0px;
+                svg{
+                    font-size: 20px;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+    .priceBox{
+        justify-content: space-between;
+        margin: 0px 0px 10px 0px;
+        .cat{
+            height: 25px;
+            width: auto;
+            background: var(--blue);
+            max-width: 80px;
+            padding: 3px 10px 0px 10px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .price{
+            font-weight: 900;
+            font-size: 20px;
+        }
+    }
+
+    &:hover{
+        figure{
+            .btnBox{
+                opacity: 1;
+                .btn{
+                    transform: translateY(0px);
+                    transition: all ease-out 0.3s;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    @include mediaLaptop{
+        .priceBox{
+            .price{
+                font-size: 16px;
+            }
+        }
+    }
+    @include mediaPhone{
+        padding: 15px;
+    }
+}
+
+.piStartList{
+    margin: 8px 0px 8px 0px;
+    img{
+        width: auto;
+        height: 15px;
+        display: inline-block;
+        margin-right: 2px;
+    }
+}

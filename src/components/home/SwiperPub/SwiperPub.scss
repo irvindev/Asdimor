@@ -1,0 +1,21 @@
+.homeSwiperPub{
+    width: 100%;
+    display: flex;
+    box-shadow: 2px 4px 3px 0px rgba(0,0,0,.15);
+        border-radius: 20px;
+    overflow: hidden;
+    .swiper-pagination{
+        .swiper-pagination-bullet-active{
+            background: var(--blue) !important;
+        }
+    }
+}
+
+.homeSwiperPubItem{
+    width: 100%;
+    height: auto;
+
+    img{
+        display: block;
+    }
+}

@@ -1,0 +1,212 @@
+@import '../../assets/css/mixin.scss';
+
+.homeIntro{
+    @include mediaTablet{
+        .MuiContainer-root{
+            padding: 0px !important;
+        }
+    }
+}
+
+.homeIntroBox{
+    flex-wrap: wrap;
+    padding: 40px 0px 40px 0px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index:2;
+    @include mediaTablet{
+        flex-direction: column;
+        padding: 60px 0px 25px 0px;
+    }
+    @include mediaTablet{
+        padding: 30px 0px 20px 0px;
+    }
+}
+
+.titleBox{
+    width: 530px;
+    padding: 0px 20px 0px 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    h1{
+        font-size: 80px;
+        font-family: var(--font1);
+        line-height: 1;
+        position: relative;
+        padding: 0px 0px 15px 0px;
+        margin: 0px 0px 35px 0px;
+        &::before{
+            content: '';
+            width: 100%;
+            height: 12px;
+            position: absolute;
+            left: 0px;
+            background: url('../../assets/img/title_line.png') left no-repeat;
+            //background-size: 100% 100%;
+            bottom: 0px;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            right: 13%;
+            bottom: 10px;
+            background: url('../../assets/img/ico_pluma.png') center no-repeat;
+            background-size: 100% 100%;
+            width: 78px;
+            height: 179.68px;
+        }
+    }
+    p{
+        font-size: 22px;
+        color: var(--gris);
+        font-weight: 300;
+        line-height: 1.3;
+    }
+    small{
+        font-size: 14px;
+        color: var(--gris);
+    }
+    .btnBox{
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin: 30px 0px 0px 0px;
+    }
+    @include madiaPcsmall{
+        padding: 0px 30px 0px 2%;
+    }
+    @include mediaLaptop{
+        padding: 0px 30px 0px 0%;
+        h1{
+            font-size: 65px;
+            &::before{
+                width: 60%;
+                background: url('../../assets/img/title_line.png') left no-repeat;
+                background-size: 100% 100%;
+            }
+            &::after{
+                right: 25%;
+                width: 67px;
+                height: 154.34px;
+            }
+        }
+        p{
+            font-size: 20px;
+        }
+    }
+    @include mediaTablet{
+        width: 450px;
+        text-align: center;
+        padding: 0px 0px 0px 0%;
+        align-items: center;
+        h1{
+            
+            &::before{
+                width: 70%;
+                left: 0px;
+                right: 0px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            &::after{
+                display: none;
+            }
+        }
+        p{
+            font-size: 18px;
+        }
+        .btnBox{
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0px 20px 0px;
+        }
+    }
+    @include mediaPhone{
+        padding: 0px 5% 0px 5%;
+        width: 100%;
+        margin-bottom: 10px;
+        h1{
+            font-size: 45px;
+            margin-bottom: 25px;
+            &::before{
+                width: 50%;
+                height: 8px;
+            }
+        }
+        p{
+            font-size: 16px;
+        }
+    }
+}
+
+.homeIntroCarrusel{
+    width: calc( 100% - 530px );
+    @include madiaPcsmall{
+        width: calc( 100% - 530px );
+        padding: 0px 0px 0px 20px;
+    }
+    @include mediaTablet{
+        width: 100%;
+        padding: 0px 0px 0px 0px;
+    }
+}
+
+
+// Novedades.
+.homeMasvendidoBox{
+    padding: 30px 0px 50px 0px;
+}
+
+// Trabaja con nosotros
+.homeTrabaja{
+    padding: 40px 0px 40px 0px;
+}
+
+.homeTrabajaBox{
+    border: 1px solid rgba(0,0,0,.05);
+    background: linear-gradient(to right,  #D4F7FF 0%,#D4F7FF 100%);
+    padding: 2.5% 5% 2.5% 5%;
+    border-radius: 20px;;
+    justify-content: space-between;
+    .txt{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        h3{
+            font-size: 50px;
+            margin-bottom: 15px;
+            line-height: 1;
+            strong{
+                font-weight: 900;
+                position: relative;
+                z-index: 1;
+                &::before{
+                    content: '';
+                    width: 100%;
+                    height: 30px;
+                    background: var(--green);
+                    bottom: 10px;
+                    position: absolute;
+                    opacity: .4;
+                    left: 0px;
+                    z-index: 0-1;
+                }
+            }
+        }
+        p{
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--gris);
+            margin-bottom: 25px;
+            strong{
+                position: relative;
+
+            }
+        }
+    }
+    figure{
+        width: 450px;
+    }
+}
+
+

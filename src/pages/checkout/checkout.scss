@@ -1,0 +1,386 @@
+@import './../../assets/css/mixin.scss';
+
+
+.checkoutPage{
+    flex-wrap: wrap;
+    margin: 40px 0px 40px 0px;
+    align-items: flex-start;
+    justify-content: space-between;
+    .titleSections{
+        width: 100%;
+        margin: 0px 0px 30px 0px;
+    }
+}
+
+.checkoPapper{
+    background: white;
+    border-radius: 15px;
+    border: 1px solid #D5F2FF;
+    box-shadow: 2px 4px 3px 0px rgba(0,0,0,.07);
+}
+
+.checoStepper{
+    width: calc( 100% - 440px );
+    padding: 15px;
+    .MuiStepper-root{
+        .MuiStep-root{
+            position: relative;
+            &::before{
+                content: '';
+                width: 10px;
+                height: calc( 100% - 0px );
+                position: absolute;
+                top: 14px;
+                left: 25px;
+                border-left: 2px dotted var(--green);
+                @include mediaPhone{
+                    left: 15px;
+                }
+            }
+
+            .MuiStepLabel-root{
+
+                .MuiStepLabel-iconContainer{
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    text-align: center;
+                    padding: 0px;
+                    background: #D8F7FF;
+                    transition: all ease-in-out .2s;
+                    transform: scale(0.8,0.8);
+                    svg{
+                        font-size: 25px;
+                        color: var(--dark-blue);
+                    }
+                    @include mediaPhone{
+                        width: 35px;
+                        height: 35px;
+                        transform: scale(1,1);
+                        svg{
+                            font-size: 22px;
+                        }
+                    }
+                }
+                .MuiStepLabel-iconContainer.Mui-active{
+                    background: var(--blue);
+                    transform: scale(1,1);
+                    svg{
+                        color: white;
+                        transition: all ease-in-out .2s;
+                        font-size: 20px;
+                    }
+                }
+                .MuiStepLabel-labelContainer{
+                    padding: 0px 0px 0px 10px;
+                    .MuiStepLabel-label{
+                        font-size: 20px;
+                        font-weight: bold;
+                        color: var(--dark-blue);
+                    }
+                }
+            }
+            .MuiStepContent-root{
+                margin-left: 25px;
+                border-left: 0px dotted var(--green);
+            }
+        }
+        .MuiStepConnector-root{
+            margin-left: 25px;
+            
+            .MuiStepConnector-line{
+                border-left: 0px dotted var(--green);
+                position: relative;
+                &::before{
+                    content: '';
+                    width: 2px;
+                    height: calc( 100% - 4px );
+                    position: absolute;
+                    top: 16px;
+                    left: 0px;
+                    border-left: 2px dotted var(--green);
+                }
+                @include mediaPhone{
+                    &::before{
+                    left: -10px;
+                    border-left: 2px dotted var(--green);
+                    }
+                }
+            }
+        }
+        .Mui-completed{
+            .MuiStepLabel-root{
+                align-items: flex-start;
+                justify-content: flex-start;
+                span{
+                    display: inline-block;
+                    width: 100%;
+                    margin-top: 5px;
+                }
+            
+                .MuiStepLabel-iconContainer{
+                    background: var(--green);
+                    transform: scale(1,1);
+                    svg{
+                        color: white;
+                        transition: all ease-in-out .2s;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+    @include mediaTablet{
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    @include mediaPhone{
+        padding: 0px 5px 5px 5px;
+    }
+}
+
+.checoStepperBox{
+    background: #F6FEFF;
+    padding: 20px;
+    border: 1px solid #D5F2FF;
+    border-radius: 20px;
+    flex-direction: column;
+    @include mediaPhone{
+        padding: 10px;
+        border-radius: 10px;
+    }
+}
+
+.checoStepperBoxInfo{
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 10px;
+    position: relative;
+    p{
+        font-size: 14px;
+        font-weight: normal;
+    }
+    ul{
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        li{
+            font-size: 14px;
+            font-weight: normal;
+            display: inline-block;
+            width: 100%;
+            margin: 4px 0px 4px 0px;
+            line-height: 1;
+            height: auto;
+        }
+    }
+    .btnFormEditar{
+        position: absolute;
+        top: 20px;
+        right: 10px;
+        svg{
+            font-size: 18px;
+            margin-right: 10px;
+        }
+    }
+    .checoStepperBtn{
+        margin-top: 15px;
+    }
+    @include mediaPhone{
+        p{
+            font-size: 12px;
+        }
+        ul{
+            li{
+                font-size: 12px;
+            }
+        }
+        .btnFormEditar{
+            font-size: 0px;
+            width: 30px;
+            height: 30px;
+            top: 5px;
+            right: 5px;
+            padding: 0px 10px 0px 7px;
+            //font-size: 12px;
+            svg{
+                margin: 0px 0px 0px 3px;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.checoCartList{
+    margin-bottom: 10px;
+    flex-direction: column;
+    .empty{
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin: 0px 0px 10px 0px;
+    }
+    @include mediaPhone{
+        .empty{
+            font-size: 14px;
+            svg{
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+.checoStepperResp{
+    flex-direction: column;
+    .textFieldWhite{
+        margin: 0px;
+    }
+}
+    
+
+.checoStepperBtn{
+    align-items: flex-start;
+    justify-content: flex-start;
+    .btnPrimary{
+        height: 45px;
+        width: auto;
+        min-width: auto;
+        font-size: 16px;
+        padding: 0px 40px 0px 20px;
+        margin: 0px 10px 0px 0px;
+        &::before{
+            right: 20px;
+        }
+    }
+    .btnPrimaryBack{
+         padding: 0px 20px 0px 40px;
+        &::before{
+            right: auto;
+            left: 20px;
+            transform: translateY(-50%) scale(-1,1);
+        }
+    }
+    @include mediaPhone{
+        .btnPrimary{
+            height: 35px;
+            font-size: 14px;
+            padding: 0px 30px 0px 15px;
+            &::before{
+                right: 13px;
+                width: 7px;
+                height: 14px;
+            }
+        }
+    }
+}
+
+.checoResumen{
+    width: 420px;
+    .checoResumenBox{
+        padding: 10px;
+        h3{
+            font-size: 24px;
+            color: var(--dark-blue);
+            //border-radius: 10px;
+            padding: 5px 15px 10px 0px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            border-bottom: 1px solid rgba(0,0,0,.07);
+            svg{
+                font-size: 30px;
+                margin-right: 10px;
+            }
+        }
+        .checoResTotal{
+            margin: 10px 0px 7px 0px;
+            padding: 0px 10px 7px 10px;
+            li{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 18px;
+                padding: 2px 0px 2px 0px;
+                color: var(--gris);
+                
+            }
+        }
+    }
+    @include mediaTablet{
+        width: 100%;
+    }
+}
+
+.checoResumenAct{
+    padding-top: 140px;
+    @include mediaTablet{
+        transform: none !important;
+        position: relative !important;
+        padding-top: 0px;
+    }
+}
+
+.checoResumen > div:first-child {
+    @include mediaTablet{
+        transform: none !important;
+        width: 100%;
+    }
+}
+
+
+.checoTerms{
+    flex-direction: column;
+    .alertInfo{
+        margin-bottom: 10px;
+        margin: 10px 0px 20px 0px;
+        align-items: flex-start;
+    }
+}
+
+.checoProdList{
+    margin: 0px 0px 10px 0px;
+    flex-direction: column;
+    li{
+        border: 1px solid #D5F2FF;
+        border-radius: 20px;
+        padding: 5px 10px 5px 10px;
+        margin-bottom: 10px;
+        figure{
+            width: 50px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .txt{
+            width: calc( 100% - 50px );
+            padding: 0px 0px 0px 10px;
+            h4{
+                font-size: 16px;
+            }
+            p{
+                font-size: 14px;
+                font-weight: normal;
+            }
+        }
+    }
+}
+
+.btnBackCart{
+    height: 35px;
+    background: var(--green);
+    color: white;
+    padding: 0px 20px 0px 20px;
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22.5px;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+}

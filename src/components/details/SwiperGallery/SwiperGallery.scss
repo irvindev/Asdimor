@@ -1,0 +1,202 @@
+@import '../../../assets/css/mixin.scss';
+
+.detailGallery {
+    width: 100px;
+    height: 100%;
+    max-height: 670px;
+    padding: 10px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 1px 2px 5px 0px rgba(0,0,0,.08);
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        height: auto !important;
+        width: 100% !important;
+        
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+    .swiper-button-prev,
+    .swiper-button-next{
+        width: 35px;
+        height: 35px;
+        background: #D5F2FF;
+        border-radius: 50%;
+        margin: 0px;
+        left: 50%;
+        transform: translate(-50%,0%) rotate(90deg);
+        box-shadow: 1px 1px 4px 0px rgba(0,0,0,.2);
+        &::after{
+            font-size: 15px;
+            color: var(--blue);
+        }
+    }
+    .swiper-button-prev{
+        border-radius: 0% 50% 50% 0%;
+        top: 0px;
+    }
+    .swiper-button-next{
+        top: auto;
+        bottom: 0px;
+        border-radius: 50% 0% 0% 50%;
+    }
+    .swiper-button-disabled{
+        opacity: 0;
+    }
+    @include mediaLaptop{
+        height: 500px;
+    }
+    @include mediaTablet{
+        width: 100%;
+        height: auto;
+        .swiper-slide{
+            width: 80px !important;
+            margin-right: 15px !important;
+        }
+    }
+    @include mediaPhone{
+        .swiper-slide{
+            width: 60px !important;
+            margin-right: 10px !important;
+        }
+        .swiper-button-prev{
+            border-radius: 0% 50% 50% 0%;
+            top: 50%;
+            left: 0px;
+            right: auto;
+            bottom: auto;
+            transform: translateY(-50%);
+        }
+        .swiper-button-next{
+            top: 50%;
+            bottom: auto;
+            transform: translateY(-50%);
+            border-radius: 50% 0% 0% 50%;
+            left: auto;
+            right: 0px;
+        }
+    }
+}
+
+.detallePageGaleria{
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 40%;
+    @include mediaLaptop{
+        width: 40%;
+    }
+    @include mediaTablet{
+        width: 40%;
+    }
+    @include mediaPhone{
+        width: 100%;
+    }
+}
+
+
+.detallePageGaleriaBox{
+    width: 100%;
+    display: flex;
+    //align-items: flex-start;
+    justify-content: space-between;
+    .list{
+        //display: block;
+        float: left;
+        width: auto;
+        //height: 100%;
+        .item{
+            //width: 140px;
+            cursor: pointer;
+            margin: 0px 0px 10px 0px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 1px 2px 5px 0px rgba(0,0,0,.08);
+            img{
+                border-radius: 10px;
+            }
+        }
+    }
+    figure{
+        width: calc( 100% - 110px );
+        padding-left: 15px;
+        background: white;
+        padding: 10px;
+        cursor: pointer;
+        box-shadow: 1px 2px 5px 0px rgba(0,0,0,.08);
+        border-radius: 20px;
+        img{
+            border-radius: 15px;
+            
+        }
+    }
+    @include mediaLaptop{
+        
+        .list{
+            display: flex;
+            .item{
+                width: 100px;
+                padding: 5px;
+                //margin: 0px 10px 0px 0px;
+                .MuiSkeleton-root{
+                    height: 120px !important;
+                }
+            }
+        }
+        figure{
+            width: calc( 100% - 110px );
+        }
+    }
+    @include mediaTablet{
+        flex-direction: column-reverse;
+        .list{
+            flex-direction: row;
+            width: 100%;
+            padding: 10px 0px 0px 0px;
+            .item{
+                .MuiSkeleton-root{
+                    height: 60px !important;
+                }
+            }
+            .itemResp{
+                margin-right: 10px;
+                width: 60px;
+                .MuiSkeleton-root{
+                    height: 60px !important;
+                }
+            }
+        }
+        figure{
+            width: 100%;
+            .MuiSkeleton-root{
+                height: 260px !important;
+            }
+        }
+    }
+    @include mediaPhone{
+        width: 100%;
+        .list{
+            padding: 10px 0px 10px 0px;
+            .item{
+                padding: 3px !important;
+                border-radius: 3px;
+                img{
+                    border: 2px;
+                    border-radius: 3px;
+                }
+            }
+        }
+    }
+}
+
+.lb-canvas{
+    .lb-img{
+        width: auto;
+        height: auto;
+    }
+}

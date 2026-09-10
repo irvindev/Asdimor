@@ -1,0 +1,53 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches:
+      - main      # producción
+      - develop   # desarrollo
+  workflow_dispatch: {}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    # Usa un GitHub Environment del mismo nombre que la rama ("main" o "develop").
+    # Crea ambos en Settings > Environments y define ahí sus secrets (mismos nombres,
+    # valores distintos por entorno). Así "production" queda separado y puede protegerse
+    # con reviewers/reglas si lo necesitas más adelante.
+    environment: ${{ github.ref_name == 'main' && 'production' || 'development' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        # react-scripts usa NODE_ENV=production siempre que se hace "build" (no hay build
+        # de desarrollo real); lo que cambia por rama son los valores REACT_APP_* de abajo,
+        # tomados del Environment de GitHub seleccionado arriba.
+        run: npm run build
+        env:
+          REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
+          REACT_APP_SITE_URL: ${{ secrets.REACT_APP_SITE_URL }}
+          REACT_APP_WC_CONSUMER_KEY: ${{ secrets.REACT_APP_WC_CONSUMER_KEY }}
+          REACT_APP_WC_CONSUMER_SECRET: ${{ secrets.REACT_APP_WC_CONSUMER_SECRET }}
+          REACT_APP_MP_PUBLIC_KEY: ${{ secrets.REACT_APP_MP_PUBLIC_KEY }}
+          REACT_APP_MP_PAYMENT_URL: ${{ secrets.REACT_APP_MP_PAYMENT_URL }}
+          REACT_APP_GOOGLE_MAPS_API_KEY: ${{ secrets.REACT_APP_GOOGLE_MAPS_API_KEY }}
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
+          local-dir: ./build/

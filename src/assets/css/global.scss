@@ -1,0 +1,440 @@
+@import "node_modules/normalize-scss/sass/normalize";
+@import './mixin.scss';
+
+// Variables
+:root{
+    --dark-blue: #245574;
+    --green: #95C11F;
+    --gris:#668599;
+    --blue:#006EB8;
+    --error:#db0c51;
+    --font1: "Caveat", cursive;
+    --font2: "Barlow", sans-serif;
+}
+
+// All
+*{
+    box-sizing: border-box;
+}
+
+//Body
+body{
+    font-family: var(--font2);
+    background: url('../img/texture.png');
+    color: var(--dark-blue);
+    h1,h2,h3,h4,h5,h6{
+        font-size: 30px;
+        margin: 0px;
+        color: var(--dark-blue);
+        font-family: var(--font2);
+        margin: 0px;
+        padding: 0px;
+    }
+    p{
+        margin: 0px;
+        color: var(--dark-blue);
+    }
+    figure{
+        margin: 0px;
+        padding: 0px;
+        display: block;
+    }
+    img{
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    ul{
+        list-style: none;
+        padding: 0px;
+    }
+}
+
+// Main
+main{
+    display: inline-block;
+    vertical-align: top;
+    width:  100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.pageContent{
+    padding: 160px 0px 0px 0px;
+    @include mediaPhone{
+        padding: 100px 0px 0px 0px;
+    }
+}
+
+.secBox{
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    height: auto;
+    position: relative;
+}
+
+
+// Clases
+.inlineBlock{
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+}
+
+.inlineFlex{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.inlineFlexLeft{
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+// Container
+.MuiContainer-root{
+    max-width: 1550px !important;
+    //padding: 0px 5% 0px 5% !important;
+    position: relative;
+    @include mediaLaptop{
+        padding: 0px 2.5% 0px 2.5% !important;
+    }
+}
+
+// Botones
+.btnPrimary{
+    background: var(--green);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    padding: 0px 50px 0px 30px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: var(--font2);
+    font-weight: 500;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 4px 2px 0px rgba(0,0,0,.1);
+    position: relative;
+    min-width: 180px;
+    &::before{
+        content: '';
+        width: 7px;
+        height: 16px;
+        position: absolute;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: url('../img/ico_arrow_buton.png') center no-repeat;
+        background-size: 100% 100%;
+    }
+    @include mediaTablet{
+        height: 55px;
+    }
+    @include mediaPhone{
+        height: 50px;
+    }
+    @include mediaMiniPhone{
+        height: 40px;
+    }
+}
+
+.btnFormEditar{
+    background: white;
+    height: 35px;
+    font-size: 14px;
+    box-shadow: 1px 2px 4px 0px rgba(0,0,0,.15);
+    border: 1px solid rgba(0,0,0,.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 20px 0px 13px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    svg{
+        font-size: 18px;
+        margin-right: 10px;
+    }
+}
+
+.btnPrimaryDisabled{
+    font-size: 0px;
+    small{
+        opacity: 0;
+        transition: all ease-in-out .3s;
+    }
+    .text{
+        opacity: 0;
+    }
+    .load{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%,-50%) !important;
+        top: 55%;
+        svg{
+            color: white;
+        }
+    }
+    &::before{
+        opacity: 0;
+    }
+}
+
+.closedPopup{
+    position: absolute;
+    top: 0px;
+    width: 50px;
+    height: 50px;
+    border-radius: 0px 0px 0px 20px;
+    background: var(--green);
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+    @include mediaPhone{
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+.linkGeneral{
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--dark-blue);
+    line-height: 1.2;
+    &::before{
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0px;
+        width: 100%;
+        height: 7px;
+        background: var(--green);
+        opacity: .4;
+        transition: all ease-in-out .3s;
+        z-index: -1;
+    }
+    &:hover{
+        &::before{
+            opacity: .9;
+            height: 3px;
+            bottom: -4px;
+        }
+    }
+}
+
+
+// Titulos
+.titleSections{
+    h1,h2,h3,h4{
+        font-size: 40px;
+        font-weight: 900;
+        position: relative;
+        padding: 0px 0px 0px 45px;
+        line-height: 1;
+        &::before{
+            content: '';
+            width: 26.5px;
+            height: 35.08px;
+            position: absolute;
+            left: 0px;
+            top: 3px;
+            background: url('../img/ico_title_sections.png') center no-repeat;
+            background-size: 100% 100%;
+        }
+    }
+    @include mediaLaptop{
+        h1,h2,h3,h4{
+            font-size: 40px;
+        }
+    }
+    @include mediaTablet{
+        h1,h2,h3,h4{
+            font-size: 35px;
+        }
+    }
+    @include mediaPhone{
+        h1,h2,h3,h4{
+            font-size: 28px;
+            padding: 0px 0px 0px 35px;
+            &::before{
+                width: 20px;
+                top: 0px;
+                height: 34px;
+            }
+        }
+    }
+}
+
+// Text Field
+.textField{
+    margin-bottom: 20px;
+    .MuiFormControl-root{
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 1px 3px 4px 0px rgba(0,0,0,.09);
+        .MuiFormLabel-root{
+            font-family: var(--font2);
+            color: var(--gris);
+        }
+        .MuiInputBase-root{
+            background: #EFFCFF;
+            input{
+                font-family: var(--font2);
+                color: var(--dark-blue);
+                font-weight: 600;
+            }
+            &::before{
+                border-bottom: 2px solid #B4D7EA;
+                border-radius: 15px;
+            }
+            &::after{
+                border-radius: 15px;
+            }
+            &:hover{
+                &::before{
+                    border-bottom: 2px solid var(--blue);
+                }
+            }
+        }
+        .Mui-focused{
+            &::after{
+                border-bottom: 2px solid var(--green);
+            }
+            
+        }
+    }
+}
+
+// Text Field
+.textFieldWhite{
+    .MuiFormControl-root{
+        border: 1px solid #D5F2FF;
+        box-shadow: 1px 3px 4px 0px rgba(0,0,0,.09);
+        
+        .MuiInputBase-root{
+            background: #fff;
+        }
+    }
+    .alertInfo{
+        margin-top: 10px;
+    }
+
+}
+
+.textFieldError{
+    .preprensaImg{
+        border: 1px solid #ff436d;
+    }
+}
+
+.textFielCheck{
+    .MuiFormGroup-root{
+        .MuiButtonBase-root{
+            padding: 0px;
+            margin-left: 15px;
+            margin-right: 10px;
+        }
+        .MuiSvgIcon-root{
+            fill: var(--dark-blue);
+        }
+        .MuiTypography-root{
+            font-size: 16px;
+            font-family: var(--font2);
+            span{
+                a{
+                    color: var(--dark-blue);
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    .Mui-error{
+        .MuiSvgIcon-root{
+            fill: var(--error);
+        }
+        .MuiTypography-root{
+            color: var(--error);
+            a{
+                color: var(--error) !important;
+            }
+        }
+    }
+}
+
+// TextField Error 
+.textFieldError{
+    .MuiFormControl-root{
+        border: 1px solid #ff436d;
+        .MuiFormLabel-root{
+            color: #ff436d;
+        }
+        .MuiInputBase-root{
+            &::before{
+                border-bottom: 2px solid #ff436d;
+            }
+            &::after{
+                border-radius: 15px;
+            }
+            &:hover{
+                &::before{
+                    border-bottom: 2px solid #ff436d;
+                }
+            }
+        }
+        .Mui-focused{
+            &::after{
+                border-bottom: 2px solid #f90038;
+            }
+            
+        }
+    }
+
+
+}
+
+
+// Alerts
+.alertInfo{
+    padding: 7px 7px 7px 7px !important;
+    border: 1px solid rgba(0,0,0,.05);
+    align-items: center;
+    border-radius: 15px !important;
+    .MuiAlert-icon {
+        margin-right: 7px;
+        padding: 2px 0px 0px 0px;
+    }
+    .MuiAlert-message{
+        font-size: 13px;
+        font-family: var(--font2);
+        padding: 0px;
+    }
+}
+
+
+.alertInfoBig{
+    width: 100%;
+    
+    .MuiAlert-icon {
+        margin-right: 5px;
+        padding: 2px 0px 0px 0px;
+        font-size: 16px;
+    }
+    .MuiAlert-message{
+        font-size: 14px;
+    }
+}

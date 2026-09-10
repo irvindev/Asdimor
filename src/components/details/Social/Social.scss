@@ -1,0 +1,31 @@
+.detalleShareBox{
+    justify-content: flex-start;
+}
+
+.detalleShare{
+    justify-content: flex-start;
+    margin: 10px 0px 0px 0px;
+    //border: 1px solid #D5F2FF;
+    background: #f0f8fb;
+    width: auto;
+    border-radius: 25px;
+    padding: 5px 3px 5px 10px;
+    p{
+        font-size: 14px;
+        font-family: var(--font2);
+        margin-right: 10px;
+        //font-weight: bold;
+    }
+}
+
+.detalleShareItem{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #a8c4d1;
+    margin-right: 5px;
+    img{
+        width: auto;
+        height: 15px;
+    }
+}

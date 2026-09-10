@@ -1,0 +1,345 @@
+@import '../../assets/css/mixin.scss';
+
+.serviciosPageCont{
+    padding: 130px 0px 0px 0px;
+    @include mediaTablet{
+        padding: 125px 0px 0px 0px;
+    }
+    @include mediaPhone{
+        padding: 82px 0px 0px 0px;
+    }
+}
+
+.servpIntro{
+    background: #729d00;
+    justify-content: flex-end;
+    figure{
+        width: 50%;
+        position: relative;
+        &::before{
+            content: '';
+            width: 40%;
+            height: 100%;
+            z-index: 1;
+            top: 0px;
+            left: 0px;
+            position: absolute;
+            background: linear-gradient(to right,  #729d00 0%,rgba(149,193,31,0) 100%);
+        }
+    }
+    @include mediaTablet{
+        flex-direction: column;
+        figure{
+            width: 100%;
+        }
+    }
+}
+
+.servpIntroFloat{
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    left: 0px;
+    .txt{
+        width: 50%;
+        padding: 0px 0% 0px 0%;
+        h1{
+            font-family: var(--font1);
+            color: white;
+            font-size: 100px;
+            font-weight: 400;
+        }
+        h2{
+            color: white;
+            font-size: 28px;
+            font-weight: 400;
+            margin: 0px 0px 20px 0px;
+        }
+        p{
+            color: white;
+            font-size: 20px;
+            font-weight: 200;
+        }
+    }
+    @include madiaPcsmall{
+        .txt{
+            h1{
+                font-size: 85px;
+            }
+            h2{
+                font-size: 26px;
+            }
+            p{
+                font-size: 19px;
+            }
+        }
+    }
+    @include mediaLaptop{
+        .txt{
+            h1{
+                font-size: 70px;
+            }
+            h2{
+                font-size: 24px;
+            }
+            p{
+                font-size: 18px;
+            }
+        }
+    }
+    @include mediaTablet{
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        
+        .txt{
+            width: 100%;
+            padding-bottom: 20px;
+            padding: 10px 0px 20px 0px;
+            text-align: center;
+            h1{
+                font-size: 55px;
+            }
+            h2{
+                font-size: 18px;
+            }
+            p{
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.servpIntroDet{
+    position: absolute;
+    z-index: 3;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: auto;
+}
+
+
+// Valores{
+.servpValores{
+    background: white;
+    padding: 60px 0px 60px 0px;
+    flex-direction: column;
+    @include mediaLaptop{
+        padding: 40px 0px 40px 0px;
+    }
+    @include mediaPhone{
+        padding: 20px 0px 20px 0px;
+    }
+}
+
+
+.servpValoresList{
+    position: relative;
+    z-index: 3;
+    ul{
+        li{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0px 40px 0px;
+            figure{
+                width: 500px;
+                border-radius: 30px;
+                overflow: hidden;
+                box-shadow: 2px 4px 4px 0px rgba(0,55,107,.10);
+                img{
+                    display: block;
+                }
+            }
+            .txt{
+                width: calc( 100% - 500px );
+                padding: 0px 0px 0px 5%;
+                display: flex;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                flex-direction: column;
+                h3{
+                    font-family: var(--font1);
+                    font-size: 50px;
+                    padding: 0px 0px 20px 0px;
+                    margin-bottom: 20px;
+                    position: relative;
+                    &::before{
+                        content: '';
+                        width: 201.84px;
+                        height: 12.87px;
+                        position: absolute;
+                        bottom: 0px;
+                        background: url('../../assets/img/nosotros_subline.png') center no-repeat;
+                        background-size: 100% 100%;
+                        left: 0px;
+                    }
+                }
+                p{
+                    font-size: 20px;
+                    color: var(--gris);
+                }
+                .btnPrimary{
+                    margin-top: 25px;
+                    background: var(--blue);
+                }
+            }
+            &:nth-child(even){
+                flex-direction: row-reverse;
+                .txt{
+                    padding: 0px 5% 0px 0px;
+                }
+            }
+        }
+    }
+    @include mediaTablet{
+        ul{
+            li{
+                border-bottom: 1px solid rgba(0,0,0,.1);
+                padding-bottom: 20px;
+                margin: 20px 0px 20px 0px;
+                figure{
+                    width: 400px;
+                }
+                .txt{
+                    width: calc( 100% - 400px );
+                    h3{
+                        font-size: 40px;
+                        padding: 0px 0px 10px 0px;
+                        margin-bottom: 15px;
+                        &::before{
+                            width: 150px;
+                            height: 12px;
+                        }
+                    }
+                    p{
+                        font-size: 18px;
+                    }
+                }
+
+            }
+        }
+    }
+    @media screen and (max-width: 800px) {
+        ul{
+            li{
+                figure{
+                    width: 100%;
+                }
+                .txt{
+                    width: 100%;
+                    padding: 10px 10px 0px 10px;
+                    h3{
+                        font-size: 30px;
+                        padding: 0px 0px 10px 0px;
+                        margin-bottom: 15px;
+                        &::before{
+                            width: 150px;
+                            height: 12px;
+                        }
+                    }
+                    p{
+                        font-size: 16px;
+                    }
+                }
+                &:nth-child(even){
+                    .txt{
+                        padding: 10px 10px 0px 10px;
+                    }
+                }
+            }
+        } 
+    }
+}
+
+.servpValoresBack{
+    margin-top: -100px;
+    position: relative;
+    &::before{
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: 0px;
+        height: 100%;
+        background: linear-gradient(to bottom,  rgba(255,255,255,1) 1%,rgba(255,255,255,1) 20%,rgba(255,255,255,0) 100%);
+        width: 100%;
+        left: 0px;
+    }
+}
+
+.servModal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 30px;
+    outline: none;
+    max-height: 90%;
+    
+    .btnPrimary{
+        width: 100%;
+    }
+}
+
+.servModalBox{
+    flex-direction: column;
+    width: 100%;
+    padding: 30px 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 90vh;
+    overflow: auto;
+    h3{
+        text-align: center;
+    }
+    .textField{
+        margin-bottom: 0px;
+    }
+    //@include mediaTablet
+}
+
+.servModalBoxClose{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    svg{
+        font-size: 34px;
+    }
+}
+
+.preprensaImg{
+    height: 125px;
+    background: rgba(0,0,0,.1);
+    display: flex;
+    align-items: flex-end;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    label{
+        position: absolute;
+        left: 0px;
+        z-index: 2;
+        bottom: 0px;
+    }
+}

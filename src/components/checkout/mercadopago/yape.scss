@@ -1,0 +1,25 @@
+.yapeSwiper{
+    width: 90%;
+    max-width: 200px;
+    padding: 0px 20px 20px 20px;
+    .swiper-button-prev,
+    .swiper-button-next{
+        width: 40px;
+        height: 40px;
+        background: var(--blue);
+        border-radius: 50%;
+        &::after{
+            font-size: 10px;
+            color: white;
+        }
+    }
+    .swiper-button-next{
+        right: 0px;
+    }
+    .swiper-button-prev{
+        left: 0px;
+    }
+    .swiper-pagination {
+        bottom: 0px;
+    }
+}

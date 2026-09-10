@@ -1,0 +1,90 @@
+@import '../../../assets/css/mixin.scss';
+
+.checkoutFormDelivery{
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    display: flex;
+}
+
+.cfdList{
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0px 0px 10px 0px;
+
+}
+
+.cfdItem{
+    width: auto;
+    padding: 5px 20px 5px 20px;
+    background: #D8F7FF;
+    border-radius: 30px;
+    height: 45px;
+    display: flex;
+    cursor: pointer;
+    margin: 0px 10px 0px 0px;
+    align-items: center;
+    justify-content: center;
+    span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg{
+            margin-right: 10px;
+        }
+    }
+    @include mediaPhone{
+        padding: 5px 10px 5px 12px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+}
+
+.cfdItemAct{
+    background: var(--blue);
+    color: white;
+}
+
+.storeDelivery{
+    display: flex;
+    margin: 20px 0px 20px 0px;
+    align-items: center;
+    padding: 0px;
+    border-radius: 20px;
+    background: #D8F7FF;
+    flex-direction: column;
+    overflow: hidden ;
+    img{
+        width: auto;
+        height: 40px;
+    }
+    .txt{
+        width: 100%;
+        padding: 0px 0px 0px 10px;
+        h4{
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        p{
+            font-size: 14px;
+        }
+    }
+}
+
+.storeDeliveryDir{
+    padding: 20px;
+}
+
+.storeDeliveryBtnBox{
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.cfdMap{
+    height: 200px;
+}
+
+.MuiTooltip-tooltip{
+    font-size: 14px !important;
+    font-weight: 400;
+}

@@ -1,0 +1,116 @@
+@import '../../assets/css/mixin.scss';
+
+.libroPage{
+    .titleSections{
+        margin: 20px 0px 30px 0px;
+    }
+    .btnPrimary{
+        svg{
+            color: white;
+        }
+    }
+    .textField {
+        margin-bottom: 0px;
+    }
+}
+
+.libroPageBox{
+    background: white;
+    padding: 20px 30px 20px 30px;
+    margin: 30px 0px 40px 0px;
+    border-radius: 30px;
+    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.07);
+    @include mediaPhone{
+        padding: 10px 15px 15px 15px;
+        border-radius: 15px;
+    }
+}
+
+.lrNote{
+    background: #eaf8fd;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0,0,0,.05);
+    p{
+        color: var(--gris);
+        //font-size: 18px;
+        margin-bottom: 25px;
+        &:last-child{
+            margin-bottom: 0px;
+        }
+    }
+}
+
+.lrSendNote{
+    background: #eaf8fd;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0,0,0,.05);
+    p{
+        font-size: 14px;
+    }
+}
+
+.lrErrorMsg{
+    margin: 20px 0px 20px 0px;
+}
+
+.lrModalCont{
+    background: white;
+    border-radius: 25px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    width: 90%;
+    padding: 30px 20px 30px 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    .txt{
+        padding: 0px 0px 0px 30px;
+        h3{
+            font-size: 26px;
+            margin: 0px 0px 10px 0px;
+        }
+        h4{
+            font-size: 18px;
+            margin: 0px 0px 20px 0px;
+        }
+        .btnPrimary{
+            height: 50px;
+        }
+    }
+
+    figure{
+        width: 150px;
+        height: 150px;
+        background: #eff9fb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        img{
+            width: auto;
+            height: 120px;
+        }
+    }
+    @include mediaPhone{
+        flex-direction: column;
+        .txt{
+            padding: 0px;
+            text-align: center;
+            h3{
+                font-size: 22px;
+            }
+            h4{
+                font-size: 16px;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,73 @@
+@import '../../../assets/css/mixin.scss';
+
+.cmProduct{
+    width: 100%;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    //border: 1px solid rgba(116,155,183,.1);
+    position: relative;
+    box-shadow: 2px 4px 6px 0px rgba(0,0,0,.08);
+    overflow: hidden;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+    figure{
+        width: 60px;
+        border-radius: 5px;
+        overflow: hidden;
+        img{
+            display: block;
+        }
+    }
+    .txt{
+        width: calc( 100% - 60px );
+        padding: 0px 0px 0px 20px;
+        p{
+            font-size: 16px;
+            color: var(--gris);
+            font-weight: 500;
+            strong{
+                font-size: 18px;
+                font-weight: 900;
+                color: var(--dark-blue);
+            }
+            small{
+                color: var(--gris);
+                margin-bottom: 10px;
+                strong{
+                    color: var(--dark-blue);
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    .remove{
+        width: 50px;
+        height: 50px;
+        border-radius: 0px 0px 0px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        top: 0px;
+        color: white;
+        right: 0px;
+        position: absolute;
+        background: var(--green);
+        svg{
+            position: relative;
+            top: -3px;
+            right: -3px;
+        }
+    }
+    @include mediaMiniPhone{
+        .txt{
+            padding: 0px 0px 0px 10px;
+        }
+        .remove{
+            width: 35px;
+            height: 35px;
+            border-radius: 0px 0px 0px 25px;
+        }
+    }
+}

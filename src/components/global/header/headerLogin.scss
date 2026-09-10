@@ -1,0 +1,135 @@
+@import '../../../assets/css/mixin.scss';
+
+.hlOptionsList{
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    li{
+        margin-bottom: 12px;
+    }
+    @include mediaMiniPhone{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+.hlCheckItem{
+    .MuiFormGroup-root{
+        .MuiFormControlLabel-root{
+            margin: 5px 0px 0px 0px;
+            .MuiButtonBase-root {
+                padding: 0px 10px 0px 0px;
+            }
+            svg{
+                color: var(--gris);
+            }
+        }
+        .MuiTypography-root{
+            font-size: 14px;
+            line-height: 1.2;
+            font-family: var(--font2);
+            color: var(--gris);
+            a{
+                font-size: 14px;
+                //text-decoration: none;
+                color: var(--blue);
+                //font-weight: 600;
+            }
+        }
+    }
+}
+
+.hlForgotPass{
+    display: flex;
+    align-items: center;;
+    justify-content: flex-start;
+    cursor: pointer;
+    a{
+        text-decoration: none;
+        color: var(--blue);
+        line-height: 1.2;
+        font-size: 14px;
+        position: relative;
+        z-index: 1;
+        font-family: var(--font2);
+        display: inline-block;
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0px;
+            width: 100%;
+            height: 6px;
+            background: var(--green);
+            opacity: .4;
+            transition: all ease-in-out .3s;
+            z-index: -1;
+        }
+        &:hover{
+            &::before{
+                opacity: .9;
+                height: 3px;
+                bottom: -4px;
+            }
+        }
+    }
+    svg{
+        margin-right: 10px;
+        color: var(--gris);
+    }
+}
+
+.hlBtnBox{
+    justify-content: space-between;
+    button{
+        width: calc( 100% - 0px );
+        height: 50px;
+        font-size: 14px;
+        text-transform: uppercase;
+
+    }
+    a{
+        width: calc( 50% - 10px );
+        height: 50px;
+        font-size: 14px;
+        text-transform: uppercase;
+        border: 2px solid var(--green);
+        background: rgba(0,0,0,.0);
+        color: var(--green);
+        font-weight: 700;
+        font-family: var(--font2);
+        padding: 0px;
+        &::before{
+            display: none;
+        }
+    }
+    @include mediaPhone{
+        button{
+            height: 45px;
+        }
+    }
+}
+
+.alertLoginError{
+    a{
+        color: rgb(95, 33, 32);
+    }
+}
+
+.hlClosedAction{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 40px;
+    height: 40px;
+    background: var(--dark-blue);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    color: white;
+    border-radius: 0px 20px 0px 20px;
+}

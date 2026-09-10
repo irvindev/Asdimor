@@ -1,0 +1,58 @@
+@import '../../../assets/css/mixin.scss';
+
+.homeSwiperIntroComponent{
+  width: 100%;
+  //padding-top: 100px;
+  //padding-bottom: 100px;
+  /*
+  .swiper-slide-prev{
+    transform: translate3d(0px, 0px, -100px) rotateX(0deg) rotateY(-50deg) scale(1) !important;
+  }
+  .swiper-slide-next{
+    transform: translate3d(0px, 0px, -100px) rotateX(0deg) rotateY(50deg) scale(1) !important;
+  }
+    */
+}
+
+.homeSwiperIntroComponent{
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 380px;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    img{
+        display: block;
+        width: 100%;
+    }
+  }
+  @include madiaPcsmall{
+    .swiper-slide{
+      width: 300px;
+    }
+  }
+  @include mediaLaptop{
+    .swiper-slide{
+      width: 250px;
+    }
+  }
+  @include mediaTablet{
+    .swiper-slide{
+      width: 80%;
+      max-width: 280px;
+    }
+  }
+}
+
+.hsicSwiperLoad{
+  .MuiSkeleton-root{
+    position: absolute;
+    z-index: 0px;
+    top: 0px;
+    left: 0px;
+  }
+  img{
+    opacity: 0;
+  }
+}

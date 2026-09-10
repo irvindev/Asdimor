@@ -1,0 +1,101 @@
+.splashAnim{
+    position: fixed;
+    z-index: 9999;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: white;
+    justify-content: center;
+    transition: all ease-in .3s;
+    opacity: 1;
+    pointer-events: none;
+    .splshLogo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    figure{
+        width: 300px;
+        position: relative;
+        .back{
+            opacity: 0;
+        }
+    }
+    .anim{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: auto;
+        display: block;
+        opacity: 0;
+        transition: all ease-in .2s;
+    }
+    .anim2{
+        left: -10px;
+    }
+    .anim3{
+        top: -10px;
+    }
+    .anim4{
+        top: -10px;
+    }
+    .anim5{
+        left: 10px;
+    }
+}
+
+.splashLoad{
+    width: 100%;
+    margin-top: 20px;
+    height: 10px !important;
+    border-radius: 5px !important;
+    background: #dbe9f3 !important;
+    .MuiLinearProgress-bar{
+        border-radius: 5px !important;
+        //background: var(--green);
+    }
+}
+
+.splashAnimAct{
+    opacity: 0;
+    transform: scale(1.2,1.2);
+    pointer-events: none;
+}
+
+.splashAnimLogo{
+    .anim{
+        opacity: 1;
+    }
+    .anim1{
+        transition-delay: 0s;
+    }
+    .anim2{
+        transition-delay: 0.3s;
+        left: 0px;
+    }
+    .anim3{
+        transition-delay: .6s;
+        top: 0px;
+    }
+    .anim4{
+        transition-delay: .9s;
+        top: 0px;
+    }
+    .anim5{
+        transition-delay: 1.2s;
+        left: 0px;
+    }
+}
+
+.splashAnimFinal{
+    .anim{
+        opacity: 1 !important;
+        transition-delay: 0s !important;
+    }
+}
+

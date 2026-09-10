@@ -1,0 +1,63 @@
+@import '../../../assets/css/mixin.scss';
+
+
+.checkoutPaymentResp{
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    flex-direction: column;
+    padding: 30px;
+    .title{
+        flex-direction: column;
+        text-align: center;
+        svg{
+            font-size: 120px;
+            margin: 10px 0px 10px 0px;
+            color: red;
+        }
+        p{
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        @include mediaPhone{
+            svg{
+                font-size: 90px;
+            }
+            p{
+                font-size: 16px;
+            }
+        }
+    }
+    .cprBtnBox{
+        a{
+            margin: 0px 5px 0px 5px;
+            height: 50px;
+        }
+        @include mediaPhone{
+            flex-direction: column;
+            a{
+                width: 100%;
+                font-size: 14px;
+                height: 40px;
+                margin-top: 10px;
+
+                &:first-child{
+                    margin-top: 0px;
+                }
+            }
+        }
+    }
+}
+
+.checkoutPaymentRespValid{
+    .title{
+        svg{
+            color: var(--green);
+        }
+    }
+}

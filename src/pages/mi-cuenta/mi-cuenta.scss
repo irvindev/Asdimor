@@ -1,0 +1,93 @@
+@import '../../assets/css/mixin.scss';
+
+.accountCont{
+    padding: 30px 0px 50px 0px;
+}
+
+.accountBox{
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 30px 0px 0px 0px;
+    box-shadow: 1px 2px 10px 0px rgba(0,0,0,.15);
+    @include mediaPhone{
+        padding: 15px 15px 15px;
+    }
+}
+
+.accountBoxDates{
+    .title{
+        justify-content: flex-start;
+        h3{
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 25px;
+            font-weight: 800;
+            svg{
+                color: var(--green);
+                font-size: 25px;
+                margin-right: 10px;
+            }
+        }
+        .btnFormEditar{
+            margin-left: 20px;
+        }
+    }
+    ul{
+        li{
+            width: 100%;
+            height: auto;
+            padding: 5px 0px 5px 0px;
+            display: flex;
+            align-items: center;
+            p{
+                font-size: 18px;
+                color: var(--gris);
+                display: flex;
+                strong{
+                    width: 200px;
+                }
+            }
+            .btnFormEditar{
+                margin-left: 15px;
+            }
+        }
+    }
+    @include mediaPhone{
+        .btnFormEditar{
+            font-size: 0px;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            svg{
+                margin: 0px 0px 0px 5px;
+            }
+        }
+    }
+}
+
+
+.accountModalBox{
+    background: #effcff;
+    width: 90%;
+    height: auto;
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 750px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 20px;
+    .titleSections{
+        margin-bottom: 20px;
+    }
+    .textFieldWhite{
+        margin: 0px;
+    }
+
+}
