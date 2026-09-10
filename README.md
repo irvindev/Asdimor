@@ -38,17 +38,19 @@ Luego completa cada variable con sus valores reales. Referencia de qué hace cad
   para validar que el build no se rompe. **No despliega nada.**
 - Push a `main` → compila con las variables de `production` y despliega por FTP a `FTP_REMOTE_DIR`.
 
-No se despliega en `develop` porque el FTP de desarrollo apunta a la misma carpeta
-(`/public_html/`) que producción — desplegar ahí un build de desarrollo sobreescribiría el sitio
-en vivo. Si en algún momento tienes un servidor/carpeta de staging separado, se puede agregar un
-job de deploy también para `develop` sin riesgo.
+No se despliega en `develop` porque el FTP de desarrollo apunta a la misma cuenta/carpeta que
+producción — desplegar ahí un build de desarrollo sobreescribiría el sitio en vivo. Si en algún
+momento tienes un servidor/carpeta de staging separado, se puede agregar un job de deploy también
+para `develop` sin riesgo.
 
 Configura en GitHub **Settings → Environments** dos entornos, `production` y `development`, y en
 cada uno sus secrets:
 
 - **`development`**: solo las `REACT_APP_*` de la tabla de arriba.
 - **`production`**: las `REACT_APP_*` de la tabla de arriba, más `FTP_SERVER`, `FTP_USERNAME`,
-  `FTP_PASSWORD` y `FTP_REMOTE_DIR` (`/public_html/`).
+  `FTP_PASSWORD` y `FTP_REMOTE_DIR`. El valor de `FTP_REMOTE_DIR` depende de la raíz de tu cuenta
+  FTP: si el usuario FTP ya apunta directamente a `public_html`, el valor es `/` (no
+  `/public_html/`, que apuntaría a una subcarpeta inexistente).
 
 ---
 
