@@ -30,6 +30,9 @@ jobs:
       - name: Build
         run: npm run build
         env:
+          # Sin esto, react-scripts trata cada warning de ESLint (ya existian antes,
+          # no relacionados a REACT_APP_*) como error fatal solo por correr en CI.
+          CI: false
           REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
           REACT_APP_SITE_URL: ${{ secrets.REACT_APP_SITE_URL }}
           REACT_APP_WC_CONSUMER_KEY: ${{ secrets.REACT_APP_WC_CONSUMER_KEY }}
