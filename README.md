@@ -32,13 +32,23 @@ Luego completa cada variable con sus valores reales. Referencia de qué hace cad
 
 ## CI/CD (GitHub Actions)
 
-`.github/workflows/deploy.yml` compila y despliega por FTP en cada push a `main` (producción) o
-`develop` (desarrollo). Antes de que funcione, configura en GitHub **Settings → Environments**
-dos entornos llamados `production` y `development`, y en cada uno sus secrets (mismos nombres,
-valores distintos):
+`.github/workflows/deploy.yml`:
 
-- Todas las `REACT_APP_*` de la tabla de arriba
-- `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, `FTP_REMOTE_DIR`
+- Push a `develop` → solo compila (`npm run build`) con las variables del entorno `development`,
+  para validar que el build no se rompe. **No despliega nada.**
+- Push a `main` → compila con las variables de `production` y despliega por FTP a `FTP_REMOTE_DIR`.
+
+No se despliega en `develop` porque el FTP de desarrollo apunta a la misma carpeta
+(`/public_html/`) que producción — desplegar ahí un build de desarrollo sobreescribiría el sitio
+en vivo. Si en algún momento tienes un servidor/carpeta de staging separado, se puede agregar un
+job de deploy también para `develop` sin riesgo.
+
+Configura en GitHub **Settings → Environments** dos entornos, `production` y `development`, y en
+cada uno sus secrets:
+
+- **`development`**: solo las `REACT_APP_*` de la tabla de arriba.
+- **`production`**: las `REACT_APP_*` de la tabla de arriba, más `FTP_SERVER`, `FTP_USERNAME`,
+  `FTP_PASSWORD` y `FTP_REMOTE_DIR` (`/public_html/`).
 
 ---
 

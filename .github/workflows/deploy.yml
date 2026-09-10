@@ -8,12 +8,10 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    # Usa un GitHub Environment del mismo nombre que la rama ("main" o "develop").
-    # Crea ambos en Settings > Environments y define ahí sus secrets (mismos nombres,
-    # valores distintos por entorno). Así "production" queda separado y puede protegerse
-    # con reviewers/reglas si lo necesitas más adelante.
+    # Entorno de GitHub del que se leen los REACT_APP_* (mismos nombres, valores
+    # distintos por entorno: Settings > Environments > production / development).
     environment: ${{ github.ref_name == 'main' && 'production' || 'development' }}
 
     steps:
@@ -30,9 +28,6 @@ jobs:
         run: npm ci
 
       - name: Build
-        # react-scripts usa NODE_ENV=production siempre que se hace "build" (no hay build
-        # de desarrollo real); lo que cambia por rama son los valores REACT_APP_* de abajo,
-        # tomados del Environment de GitHub seleccionado arriba.
         run: npm run build
         env:
           REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
@@ -42,6 +37,27 @@ jobs:
           REACT_APP_MP_PUBLIC_KEY: ${{ secrets.REACT_APP_MP_PUBLIC_KEY }}
           REACT_APP_MP_PAYMENT_URL: ${{ secrets.REACT_APP_MP_PAYMENT_URL }}
           REACT_APP_GOOGLE_MAPS_API_KEY: ${{ secrets.REACT_APP_GOOGLE_MAPS_API_KEY }}
+
+      # Solo se necesita conservar el build para el job de deploy (rama main).
+      - name: Upload build artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: build/
+          retention-days: 1
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: build
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
