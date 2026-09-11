@@ -887,7 +887,6 @@ const LibroDeReclamosPage = (props) => {
                                         item 
                                         size={{ xs: 12, sm: 12, md: 12 }}
                                     >
-
                                         <FormControl>
                                             <FormLabel id="demo-row-radio-buttons-group-label">Detalle del reclamo/queja</FormLabel>
 
