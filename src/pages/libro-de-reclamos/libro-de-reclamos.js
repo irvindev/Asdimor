@@ -119,8 +119,6 @@ const LibroDeReclamosPage = (props) => {
         lrdistrito: Yup.string().required("Ingrese su nombre por favor.").min(2).max(250),
         lrdireccion: Yup.string().required("Ingrese su nombre por favor.").min(2).max(250),
         lrprodserv: Yup.string().required("Ingrese su nombre por favor.").min(2).max(250),
-        lrfecbuy: Yup.string().required("Ingrese su nombre por favor.").min(2).max(250),
-        lrnroboleta: Yup.string().required("Ingrese su nombre por favor.").min(2).max(250),
         lrmonrec: Yup.string().required("Ingrese su nombre por favor.").min(2).max(250),
         lrrecque: Yup.string().required("Ingrese su nombre por favor.").min(2).max(250),
         lrdetalle: Yup.string().required("Ingrese su nombre por favor.").min(2).max(250),
@@ -422,8 +420,6 @@ const LibroDeReclamosPage = (props) => {
             "lrdistrito": data.lrdistrito,
             "lrdireccion": data.lrdireccion,
             "lrprodserv": data.lrprodserv,
-            "lrfecbuy": data.lrfecbuy,
-            "lrnroboleta": data.lrnroboleta,
             "lrmonrec": data.lrmonrec,
             "lrrecque": data.lrrecque,
             "lrdetalle": data.lrdetalle,
@@ -870,44 +866,10 @@ const LibroDeReclamosPage = (props) => {
 
                                     </Grid>
 
-                                    <Grid 
-                                        item 
+                                    <Grid
+                                        item
                                         size={{ xs: 12, sm: 12, md: 4 }}
-                                        className={errors.lrfecbuy ? 'textField textFieldWhite textFieldError' : 'textField textFieldWhite' } 
-                                    >
-                                        <TextField 
-                                            fullWidth 
-                                            id="lrfecbuy" 
-                                            name="lrfecbuy"
-                                            label="Fecha Compra:" 
-                                            variant="filled" 
-                                            onChange={changeField}
-                                            {...register("lrfecbuy")}
-                                            error={errors.lrfecbuy ? true : false}
-                                        />
-                                    </Grid>
-
-                                    <Grid 
-                                        item 
-                                        size={{ xs: 12, sm: 12, md: 4 }}
-                                        className={errors.lrnroboleta ? 'textField textFieldWhite textFieldError' : 'textField textFieldWhite' } 
-                                    >
-                                        <TextField 
-                                            fullWidth 
-                                            id="lrnroboleta" 
-                                            name="lrnroboleta"
-                                            label="Numero de Boleta/Fact:" 
-                                            variant="filled" 
-                                            onChange={changeField}
-                                            {...register("lrnroboleta")}
-                                            error={errors.lrnroboleta ? true : false}
-                                        />
-                                    </Grid>
-
-                                    <Grid 
-                                        item 
-                                        size={{ xs: 12, sm: 12, md: 4 }}
-                                        className={errors.lrmonrec ? 'textField textFieldWhite textFieldError' : 'textField textFieldWhite' } 
+                                        className={errors.lrmonrec ? 'textField textFieldWhite textFieldError' : 'textField textFieldWhite' }
                                     >
                                         <TextField 
                                             fullWidth 
