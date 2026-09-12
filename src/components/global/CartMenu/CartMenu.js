@@ -52,10 +52,12 @@ const CartMenu = (props) => {
       setVisible(isFridayToSaturdayRange());
     };
 
+
     checkTime();
     const interval = setInterval(checkTime, 60000);
     return () => clearInterval(interval);
-  }, []);
+    
+  }, [infoGeneral]);
   
   return (
     <div className={cartMenuOpen ? 'cartMenuCont cartMenuContAct' : 'cartMenuCont'}>
@@ -134,8 +136,8 @@ const CartMenu = (props) => {
           <div className="titleSections">
             <h2>Hoy descansamos</h2>
           </div>
-          {infoGeneral && infoGeneral.acf && infoGeneral.acf.conf_popup &&
-            <div className="txt" dangerouslySetInnerHTML={{__html: infoGeneral.acf.conf_popup}} ></div>
+          {infoGeneral && infoGeneral.configuracionesFields && infoGeneral.configuracionesFields.confPopup &&
+            <div className="txt" dangerouslySetInnerHTML={{__html: infoGeneral.configuracionesFields.confPopup}} ></div>
           }
         </div>
       </Modal>
