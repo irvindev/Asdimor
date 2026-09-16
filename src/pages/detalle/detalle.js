@@ -548,6 +548,7 @@ const DetallePage = (props) => {
                 >
                     <div className="modalPortadas">
                         <h1>Escoja su portada por favor:</h1>
+                        <p>*Modelos sujetos a disponibilidad de stock.</p>
                         {info && info.acf && info.acf.prodacf_portadas && info.acf.prodacf_portadas.length && info.acf.prodacf_portadas.length > 0 &&
                         <ul>
                             {info.acf.prodacf_portadas.map((item,index)=>(
