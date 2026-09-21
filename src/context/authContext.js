@@ -271,6 +271,7 @@ export default function AuthContextProvider({ children }) {
     const [productCategories,setProductCategories] = useState(null);
     const [allProducts, setAllProducts] = useState(null);
     const [deliveryDep, setDeliveryDep] = useState('Lima');
+    const [deliveryMethod, setDeliveryMethod] = useState(null); // null hasta que el usuario elija 'domicilio' o 'tienda'
     const [loadGeneral, setLoadGeneral] = useState(0);
     const [loginOpen, setLoginOpen] = useState(false);
     const [cartMenuOpen, setCartMenuOpen] = useState(false);
@@ -505,19 +506,22 @@ export default function AuthContextProvider({ children }) {
             return acc + price * item.amount;
         }, 0);
 
-        let delivery = 15;
-        if (deliveryDep === 'Lima' || deliveryDep === 'Callao') {
-            delivery = subtotal > 150 ? 0 : 15;
-        } else {
-            delivery = subtotal > 150 ? 0 : 15; // Ajustar regla de envío si aplica a otras provincias
+        let delivery = 0;
+        if (deliveryMethod === 'domicilio') {
+            if (deliveryDep === 'Lima' || deliveryDep === 'Callao') {
+                delivery = subtotal > 150 ? 0 : 15;
+            } else {
+                delivery = subtotal > 150 ? 0 : 15; // Ajustar regla de envío si aplica a otras provincias
+            }
         }
+        // deliveryMethod === 'tienda' o null (aún no elegido) => delivery = 0
 
         return {
             subtotal,
             delivery,
             total: subtotal + delivery
         };
-    }, [cartItems, deliveryDep]);
+    }, [cartItems, deliveryDep, deliveryMethod]);
 
     // 7. Objeto Contextual Estable
     const value = useMemo(
@@ -533,9 +537,11 @@ export default function AuthContextProvider({ children }) {
             loadGeneral,
             baseUrl: BASE_URL,
             deliveryDep,
+            deliveryMethod,
             loginOpen,
             totals, // Retorna directamente subtotal, delivery y total calculados
             setDeliveryDep,
+            setDeliveryMethod,
             setCartMenuOpen,
             setLoginOpen,
             handleUpdateToken,
@@ -555,6 +561,7 @@ export default function AuthContextProvider({ children }) {
             allProducts,
             loadGeneral,
             deliveryDep,
+            deliveryMethod,
             loginOpen,
             totals,
             handleUpdateToken,

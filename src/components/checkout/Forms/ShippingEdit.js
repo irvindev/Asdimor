@@ -44,7 +44,7 @@ import {
 const CheckoutFormShippingEdit = ({nextForm,backForm,stepData,setStepData,setEditShip,setShippingData}) => {
 
     const [ fieldBody, setFieldBody ] = useState({});
-    const { token, baseUrl, keysWc, setDeliveryDep } = useAuthContext();
+    const { token, baseUrl, keysWc, setDeliveryDep, setDeliveryMethod } = useAuthContext();
     const [ userData, setUserData ] = useState();
 
     const changeField = (e) =>{
@@ -172,8 +172,7 @@ const CheckoutFormShippingEdit = ({nextForm,backForm,stepData,setStepData,setEdi
     const [delivery,setDelivery]  = useState(0);
     const changeDel = (val)=>{
         setDelivery(val);
-        setEditShip(false);
-        setStepData({...stepData,envio:{type:val}});
+        setDeliveryMethod(val === 1 ? 'tienda' : 'domicilio');
     }
     
     const [depAbrev,setDepAbrev]  = useState();
@@ -806,9 +805,13 @@ const CheckoutFormShippingEdit = ({nextForm,backForm,stepData,setStepData,setEdi
                                 </div>
                             :
                                 <div className="inlineFlex checoStepperBtn">
-                                    <button 
+                                    <button
                                         className="btnPrimary"
-                                        onClick={nextForm}
+                                        onClick={()=>{
+                                            setStepData({...stepData,envio:{type:delivery}});
+                                            setEditShip(false);
+                                            nextForm();
+                                        }}
                                     >
                                         Siguiente
                                     </button>
