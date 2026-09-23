@@ -762,7 +762,7 @@ const CheckoutFormShippingEdit = ({nextForm,backForm,stepData,setStepData,setEdi
                                     <a href={'https://maps.app.goo.gl/xzTdNazNUWUjoZjk8'} target="_blank" className="txt">
                                         <h4>Comas, Lima, Perú</h4>
                                         <p>Av. Chillon 236 Z.I Chacracerro</p>
-                                        <small> <strong>Horario de atención:</strong> Lunes a Jueves: 8:30 am - 19:30 pm; Viernes: 8:30 am- 13:00 pm</small>
+                                        <small> <strong>Horario de atención:</strong> Lunes a Jueves : 9:00 am - 18:00 pm y Viernes de 9:00 - 13:00 pm</small>
                                     </a>
                                 </div>
                                 {false &&
