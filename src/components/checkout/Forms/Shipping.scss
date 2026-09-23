@@ -61,24 +61,33 @@
     .txt{
         width: 100%;
         padding: 0px 0px 0px 10px;
+        text-decoration: none;
         h4{
             font-size: 18px;
             margin-bottom: 5px;
         }
         p{
-            font-size: 14px;
+            font-size: 18px !important;
+        }
+        small{
+            font-size: 16px;
+            color: var(--dark-blue);
+        }
+        &::focus,
+        &::active,
+        &::hover{
+            color: var(--dark-blue);
+            text-decoration: none;
+            small{
+                color: var(--dark-blue);
+            }
         }
     }
 }
 
 .storeDeliveryDir{
     padding: 20px;
-    p{
-        font-size: 18px !important;
-    }
-    small{
-        font-size: 16px;
-    }
+
 }
 
 .storeDeliveryBtnBox{
