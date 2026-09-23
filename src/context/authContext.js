@@ -270,7 +270,7 @@ export default function AuthContextProvider({ children }) {
     const [homeInfo, setHomeInfo] = useState(null);
     const [productCategories,setProductCategories] = useState(null);
     const [allProducts, setAllProducts] = useState(null);
-    const [deliveryDep, setDeliveryDep] = useState('Lima');
+    const [deliveryDep, setDeliveryDep] = useState(null);
     const [deliveryMethod, setDeliveryMethod] = useState(null); // null hasta que el usuario elija 'domicilio' o 'tienda'
     const [loadGeneral, setLoadGeneral] = useState(0);
     const [loginOpen, setLoginOpen] = useState(false);
@@ -507,14 +507,10 @@ export default function AuthContextProvider({ children }) {
         }, 0);
 
         let delivery = 0;
-        if (deliveryMethod === 'domicilio') {
-            if (deliveryDep === 'Lima' || deliveryDep === 'Callao') {
-                delivery = subtotal > 150 ? 0 : 15;
-            } else {
-                delivery = subtotal > 150 ? 0 : 15; // Ajustar regla de envío si aplica a otras provincias
-            }
+        if (deliveryMethod === 'domicilio' && (deliveryDep === 'Lima' || deliveryDep === 'Callao')) {
+            delivery = 15;
         }
-        // deliveryMethod === 'tienda' o null (aún no elegido) => delivery = 0
+        // Otras provincias, 'tienda' o sin elegir => delivery = 0
 
         return {
             subtotal,

@@ -93,7 +93,7 @@ const CheckoutCardForm = ({backForm, shippingData}) => {
 
 
         if(deliveryDep === 'Lima' || deliveryDep === 'Callao'){
-            deliveryTmp = 10;
+            deliveryTmp = 15;
         }else{
             deliveryTmp = 0
         }

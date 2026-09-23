@@ -66,7 +66,8 @@ const CheckoutFormShippingEdit = ({nextForm,backForm,stepData,setStepData,setEdi
     });
 
     const changeDepart = (event,value) => {
-        setSelectDepart(value.id_ubigeo)
+        setSelectDepart(value ? value.id_ubigeo : '')
+        setDeliveryDep(null);
         if(value === null || value.id_ubigeo === null  ){
             setProviciasState(provList["3926"]);    
         }else{
@@ -82,7 +83,7 @@ const CheckoutFormShippingEdit = ({nextForm,backForm,stepData,setStepData,setEdi
     };
 
     const changeProv = (event,value) => {
-        setDeliveryDep(value.nombre_ubigeo);
+        setDeliveryDep(value ? value.nombre_ubigeo : null);
         if(value === null || value.id_ubigeo === null  ){
             setDistritoState(distritoList["3927"]);    
         }else{
@@ -281,6 +282,11 @@ const CheckoutFormShippingEdit = ({nextForm,backForm,stepData,setStepData,setEdi
 
 
     },[])
+
+    // Sincroniza el método de envío con el contexto (por defecto 'domicilio')
+    useEffect(()=>{
+        setDeliveryMethod(delivery === 1 ? 'tienda' : 'domicilio');
+    },[delivery])
 
     useEffect(() => {
         if(stepData.envio && stepData.envio.data){
@@ -753,40 +759,43 @@ const CheckoutFormShippingEdit = ({nextForm,backForm,stepData,setStepData,setEdi
                             <div className="storeDelivery">
                                 <div className="inlineFlex storeDeliveryDir">
                                     <img src={icoMarquer} alt="" />
-                                    <div className="txt">
+                                    <a href={'https://maps.app.goo.gl/xzTdNazNUWUjoZjk8'} target="_blank" className="txt">
                                         <h4>Comas, Lima, Perú</h4>
-                                        <p>Av. Chillon Nro. 236 Z.I. Ex Fundo Chacra Cerro</p>
+                                        <p>Av. Chillon 236 Z.I Chacracerro</p>
+                                        <small> <strong>Horario de atención:</strong> Lunes a Jueves: 8:30 am - 19:30 pm; Viernes: 8:30 am- 13:00 pm</small>
+                                    </a>
+                                </div>
+                                {false &&
+                                    <div className="inlineFlex cfdMap">
+                                        <APIProvider apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
+                                            <Map
+                                                mapId={'bf51a910020fa2asda5a'}
+                                                defaultZoom={13}
+                                                defaultCenter={{lat: -11.915864231668476, lng: -77.04791280206123}}
+                                                gestureHandling='greedy'
+                                                disableDefaultUI>
+                                                <AdvancedMarker 
+                                                    ref={markerRef}
+                                                    position={{lat: -11.919010080885704, lng: -77.06847974585591}} 
+                                                    onClick={handleMarkerClick}
+                                                >
+                                                    <img src={icoMarker} width={20} height={35} /> 
+
+                                                </AdvancedMarker>
+
+                                                {infoWindowShown && (
+                                                    <InfoWindow anchor={marker} onClose={handleClose} maxWidth={200}>
+                                                        <div className="inlineBlock encuentInfowindow">
+                                                            <h2>Asdimor</h2>
+                                                            <p>Av. Chillon Nro. 236 Z.I. Ex Fundo Chacra Cerro</p>
+                                                        </div>
+                                                    </InfoWindow>
+                                                )}
+
+                                            </Map>
+                                        </APIProvider>
                                     </div>
-                                </div>
-                                <div className="inlineFlex cfdMap">
-                                    <APIProvider apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
-                                        <Map
-                                            mapId={'bf51a910020fa2asda5a'}
-                                            defaultZoom={13}
-                                            defaultCenter={{lat: -11.915864231668476, lng: -77.04791280206123}}
-                                            gestureHandling='greedy'
-                                            disableDefaultUI>
-                                            <AdvancedMarker 
-                                                ref={markerRef}
-                                                position={{lat: -11.919010080885704, lng: -77.06847974585591}} 
-                                                onClick={handleMarkerClick}
-                                            >
-                                                <img src={icoMarker} width={20} height={35} /> 
-
-                                            </AdvancedMarker>
-
-                                            {infoWindowShown && (
-                                                <InfoWindow anchor={marker} onClose={handleClose} maxWidth={200}>
-                                                    <div className="inlineBlock encuentInfowindow">
-                                                        <h2>Asdimor</h2>
-                                                        <p>Av. Chillon Nro. 236 Z.I. Ex Fundo Chacra Cerro</p>
-                                                    </div>
-                                                </InfoWindow>
-                                            )}
-
-                                        </Map>
-                                    </APIProvider>
-                                </div>
+                                }
                             </div>
 
                             {loadForm ?
