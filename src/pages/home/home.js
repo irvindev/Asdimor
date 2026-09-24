@@ -68,6 +68,7 @@ const HomePage = (props) => {
                               ids.map(Number).includes(Number(prodCatId))
                           )
               )
+              .sort((a, b) => new Date(b.date) - new Date(a.date))
               .slice(0, 10);
 
             resultCategories.push({

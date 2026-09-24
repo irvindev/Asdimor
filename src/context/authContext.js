@@ -142,6 +142,7 @@ const GET_PROD_DATA = `
             databaseId
             name
             slug
+            date
             seo {
                 title
                 metaDesc
@@ -471,6 +472,7 @@ export default function AuthContextProvider({ children }) {
                             id: product.databaseId,
                             name: product.name,
                             slug: product.slug,
+                            date: product.date || "",
                             seo: product.seo || null,
                             price: product.price || "",
                             regular_price: product.regularPrice || "",
