@@ -141,6 +141,7 @@ const EncuentranosPage = (props) => {
                             <div className="titleSections">
                                 <h1>Encuéntranos</h1>
                             </div>
+                            {false &&
                             <div className="encuentMapBox">
                                 <APIProvider apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
                                     <Map
@@ -172,6 +173,7 @@ const EncuentranosPage = (props) => {
 
                                 </APIProvider>
                             </div>
+                            }
 
                             <div className="inlineFlex inlineFlexLeft encuentInfoBox">
                                 <div className="encuentPaperItem encuentInfo">

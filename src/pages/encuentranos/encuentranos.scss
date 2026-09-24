@@ -21,12 +21,13 @@
 }
 
 .encuentInfoBox{
-    margin-top: -40px;
+    //margin-top: -40px;
+    margin-top: 30px;
     justify-content: space-between;
     position: relative;
     flex-wrap: wrap;
     z-index: 2;
-    padding: 0px 5%;
+    padding: 0px 0%;
     @include mediaTablet{
         margin-top: 20px;
         padding: 0px;
